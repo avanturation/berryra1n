@@ -8,7 +8,7 @@ class BerryRa1n:
         self.lcd = i2c_driver.lcd()
 
     def run(self, pongoos: bool = False):
-        cmd = "sudo ./checkra1n -v -c -V"
+        cmd = "./checkra1n -v -c -V"
         if pongoos:
             cmd += " -p"
             self.pongo = pongoos
@@ -20,30 +20,30 @@ class BerryRa1n:
         return msg
 
     def subp(self, cmd: str):
-        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
         for out in iter(proc.stdout.readline, b""):
             real = self.parse(out)
             if real == " Waiting for DFU devices":
                 self.lcd.lcd_clear()
-                self.lcd.lcd_display_string("WAITING DFU", "1")
+                self.lcd.lcd_display_string("WAITING DFU", 1)
             elif real == " Exploiting":
                 self.lcd.lcd_clear()
-                self.lcd.lcd_display_string("EXPLOITING", "1")
+                self.lcd.lcd_display_string("EXPLOITING", 1)
             elif real == " Checkmate!":
                 self.lcd.lcd_clear()
-                self.lcd.lcd_display_string("CHECKM8!", "1")
+                self.lcd.lcd_display_string("CHECKM8!", 1)
             elif real == " Booting...":
                 self.lcd.lcd_clear()
-                self.lcd.lcd_display_string("BOOTING", "1")
+                self.lcd.lcd_display_string("BOOTING", 1)
             elif real == " Uploading bootstrap...":
                 self.lcd.lcd_clear()
-                self.lcd.lcd_display_string("BOOTSTRAP", "1")
+                self.lcd.lcd_display_string("BOOTSTRAP", 1)
             elif real == " All Done":
                 self.lcd.lcd_clear()
-                self.lcd.lcd_display_string("DONE", "1")
+                self.lcd.lcd_display_string("DONE", 1)
             elif real == " -20)" and self.pongo:
                 self.lcd.lcd_clear()
-                self.lcd.lcd_display_string("PONGOOS", "1")
+                self.lcd.lcd_display_string("PONGOOS", 1)
 
 
 if __name__ == "__main__":
