@@ -1,0 +1,12 @@
+/Library/Developer/CommandLineTools/usr/bin/ld
+-Z
+-demangle
+-object_path_lto /var/folders/cj/xhjpz_3949jfd2rqr3x5hxg00000gn/T/cc-38e312.o
+-lto_library files/libLTO.dylib
+-static
+-arch arm64
+-platform_version ios 12.0.0 0.0.0
+-fatal_warnings
+-dead_strip
+-Z
+-kext

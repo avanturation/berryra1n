@@ -1,0 +1,2 @@
+cd /Users/hyuncha/Desktop/pongoOS
+/Library/Developer/CommandLineTools/usr/bin/ld -demangle -object_path_lto /var/folders/cj/xhjpz_3949jfd2rqr3x5hxg00000gn/T/cc-38e312.o -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -static -arch arm64 -platform_version ios 12.0.0 0.0.0 -o build/checkra1n-kpf-pongo -fatal_warnings -dead_strip -Z -kext /var/folders/cj/xhjpz_3949jfd2rqr3x5hxg00000gn/T/main-c19e82.o /var/folders/cj/xhjpz_3949jfd2rqr3x5hxg00000gn/T/shellcode-12a78c.o
